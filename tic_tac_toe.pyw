@@ -91,4 +91,6 @@ for el in button_dict.keys():
 game_lst = [['' for x in range(3)] for x in range(3)]
 game_lst_win = []
 who_moves = True
-root.mainloop()
+
+if __name__ == '__main__':
+    root.mainloop()

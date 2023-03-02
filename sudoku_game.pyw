@@ -9,7 +9,7 @@ from functools import partial
 from PIL import ImageTk, Image
 
 
-def main(diff):
+def difficulty(diff):
     global rank
     if diff == 1:
         rank = 50
@@ -27,7 +27,7 @@ def entry_limit(*args):
     txt = text_var_entry.get()
     if len(txt) == 0:
         text_var_entry.set('')
-    elif len(txt) < 2:
+    elif len(txt) == 1 and text_var_entry.get().isdigit():
         text_var_entry.set(txt)
         last_txt = txt
     else:
@@ -35,7 +35,8 @@ def entry_limit(*args):
 
 
 def ask_exit(even=None):
-    answer = messagebox.askyesno(title='Do you want to exit?', message='Do you really want to exit?\nAll changes will be lost')
+    answer = messagebox.askyesno(title='Do you want to exit?',
+                                 message='Do you really want to exit?\nAll changes will be lost')
     if answer:
         exit(0)
 
@@ -135,16 +136,18 @@ font = ctk.CTkFont(family='Century Gothic', size=25)
 label_menu = ctk.CTkLabel(root,
                           text='Welcome to the sudoku game!\nChoose the difficulty:',
                           font=font)
-button_very_easy = ctk.CTkButton(root, text='Very easy', command=partial(main, 1), font=font)
-button_easy = ctk.CTkButton(root, text='Easy', command=partial(main, 2), font=font)
-button_medium = ctk.CTkButton(root, text='Medium', command=partial(main, 3), font=font)
-button_hard = ctk.CTkButton(root, text='Hard', command=partial(main, 4), font=font)
+button_very_easy = ctk.CTkButton(root, text='Very easy', command=partial(difficulty, 1), font=font)
+button_easy = ctk.CTkButton(root, text='Easy', command=partial(difficulty, 2), font=font)
+button_medium = ctk.CTkButton(root, text='Medium', command=partial(difficulty, 3), font=font)
+button_hard = ctk.CTkButton(root, text='Hard', command=partial(difficulty, 4), font=font)
 label_menu.pack(expand=True)
 button_very_easy.pack(expand=True)
 button_easy.pack(expand=True)
 button_medium.pack(expand=True)
 button_hard.pack(expand=True)
-root.mainloop()
+
+if __name__ == '__main__':
+    root.mainloop()
 
 
 ctk.set_appearance_mode('System')
@@ -214,4 +217,5 @@ button_exit.place(x=460, y=200)
 entry = '123'
 root.bind_all('<Control-e>', ask_exit)
 
-root.mainloop()
+if __name__ == '__main__':
+    root.mainloop()

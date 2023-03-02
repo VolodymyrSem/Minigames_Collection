@@ -58,4 +58,5 @@ timer_var = False
 timer = tk.Label(wn, text=0, bg='#3FFF9F', width=29, font='Consolas 21')
 timer.grid(row=5, columnspan=5)
 
-wn.mainloop()
+if __name__ == '__main__':
+    wn.mainloop()

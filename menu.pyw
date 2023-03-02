@@ -76,4 +76,5 @@ tictactoe.place(x=200, y=270)
 clicker.place(x=82, y=421)
 sudoku.place(x=438, y=340)
 
-root.mainloop()
+if __name__ == '__main__':
+    root.mainloop()

@@ -122,4 +122,5 @@ button_nothing2 = tk.Button(root, width=7, height=2, bg='#1EFF78', activebackgro
 button_nothing1.grid(row=1, column=3)
 button_nothing2.grid(row=2, column=3)
 
-root.mainloop()
+if __name__ == '__main__':
+    root.mainloop()

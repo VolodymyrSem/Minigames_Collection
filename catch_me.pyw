@@ -41,4 +41,6 @@ button.bind('<Enter>', func=away)
 x = 10
 y = 10
 button.place(x=x, y=y)
-tk.mainloop()
+
+if __name__ == '__main__':
+    tk.mainloop()
